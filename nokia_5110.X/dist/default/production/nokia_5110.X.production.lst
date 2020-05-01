@@ -1,0 +1,1766 @@
+
+
+Microchip MPLAB XC8 Assembler V2.05 build -831301201 
+                                                                                               Mon Jul 22 02:45:44 2019
+
+Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1 
+     1                           	processor	18F4550
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	flic
+     5                           	psect	idataBIGRAM,global,class=CODE,delta=1,noexec
+     6                           	psect	smallconst,global,reloc=2,class=SMALLCONST,delta=1,noexec
+     7                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     8                           	psect	dataBIGRAM,global,class=BIGRAM,space=1,delta=1,lowdata,noexec
+     9                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+    10                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    19                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    20                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    21  0000                     
+    22                           ; Version 2.05
+    23                           ; Generated 20/12/2018 GMT
+    24                           ; 
+    25                           ; Copyright © 2018, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    26                           ; All rights reserved.
+    27                           ; 
+    28                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    29                           ; 
+    30                           ; Redistribution and use in source and binary forms, with or without modification, are
+    31                           ; permitted provided that the following conditions are met:
+    32                           ; 
+    33                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    34                           ;        conditions and the following disclaimer.
+    35                           ; 
+    36                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    37                           ;        of conditions and the following disclaimer in the documentation and/or other
+    38                           ;        materials provided with the distribution.
+    39                           ; 
+    40                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    41                           ;        software without specific prior written permission.
+    42                           ; 
+    43                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    44                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    45                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    46                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    47                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    48                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    49                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    50                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    51                           ; 
+    52                           ; 
+    53                           ; Code-generator required, PIC18F4550 Definitions
+    54                           ; 
+    55                           ; SFR Addresses
+    56  0000                     
+    57                           	psect	idataBIGRAM
+    58  000854                     __pidataBIGRAM:
+    59                           	opt callstack 0
+    60                           
+    61                           ;initializer for _font
+    62  000854  00                 	db	0
+    63  000855  00                 	db	0
+    64  000856  00                 	db	0
+    65  000857  00                 	db	0
+    66  000858  00                 	db	0
+    67  000859  00                 	db	0
+    68  00085A  00                 	db	0
+    69  00085B  5F                 	db	95
+    70  00085C  00                 	db	0
+    71  00085D  00                 	db	0
+    72  00085E  00                 	db	0
+    73  00085F  07                 	db	7
+    74  000860  00                 	db	0
+    75  000861  07                 	db	7
+    76  000862  00                 	db	0
+    77  000863  14                 	db	20
+    78  000864  7F                 	db	127
+    79  000865  14                 	db	20
+    80  000866  7F                 	db	127
+    81  000867  14                 	db	20
+    82  000868  24                 	db	36
+    83  000869  2A                 	db	42
+    84  00086A  7F                 	db	127
+    85  00086B  2A                 	db	42
+    86  00086C  12                 	db	18
+    87  00086D  23                 	db	35
+    88  00086E  13                 	db	19
+    89  00086F  08                 	db	8
+    90  000870  64                 	db	100
+    91  000871  62                 	db	98
+    92  000872  36                 	db	54
+    93  000873  49                 	db	73
+    94  000874  55                 	db	85
+    95  000875  22                 	db	34
+    96  000876  50                 	db	80
+    97  000877  00                 	db	0
+    98  000878  05                 	db	5
+    99  000879  03                 	db	3
+   100  00087A  00                 	db	0
+   101  00087B  00                 	db	0
+   102  00087C  00                 	db	0
+   103  00087D  1C                 	db	28
+   104  00087E  22                 	db	34
+   105  00087F  41                 	db	65
+   106  000880  00                 	db	0
+   107  000881  00                 	db	0
+   108  000882  41                 	db	65
+   109  000883  22                 	db	34
+   110  000884  1C                 	db	28
+   111  000885  00                 	db	0
+   112  000886  14                 	db	20
+   113  000887  08                 	db	8
+   114  000888  3E                 	db	62
+   115  000889  08                 	db	8
+   116  00088A  14                 	db	20
+   117  00088B  08                 	db	8
+   118  00088C  08                 	db	8
+   119  00088D  3E                 	db	62
+   120  00088E  08                 	db	8
+   121  00088F  08                 	db	8
+   122  000890  00                 	db	0
+   123  000891  50                 	db	80
+   124  000892  30                 	db	48
+   125  000893  00                 	db	0
+   126  000894  00                 	db	0
+   127  000895  08                 	db	8
+   128  000896  08                 	db	8
+   129  000897  08                 	db	8
+   130  000898  08                 	db	8
+   131  000899  08                 	db	8
+   132  00089A  00                 	db	0
+   133  00089B  60                 	db	96
+   134  00089C  60                 	db	96
+   135  00089D  00                 	db	0
+   136  00089E  00                 	db	0
+   137  00089F  20                 	db	32
+   138  0008A0  10                 	db	16
+   139  0008A1  08                 	db	8
+   140  0008A2  04                 	db	4
+   141  0008A3  02                 	db	2
+   142  0008A4  3E                 	db	62
+   143  0008A5  51                 	db	81
+   144  0008A6  49                 	db	73
+   145  0008A7  45                 	db	69
+   146  0008A8  3E                 	db	62
+   147  0008A9  00                 	db	0
+   148  0008AA  42                 	db	66
+   149  0008AB  7F                 	db	127
+   150  0008AC  40                 	db	64
+   151  0008AD  00                 	db	0
+   152  0008AE  42                 	db	66
+   153  0008AF  61                 	db	97
+   154  0008B0  51                 	db	81
+   155  0008B1  49                 	db	73
+   156  0008B2  46                 	db	70
+   157  0008B3  21                 	db	33
+   158  0008B4  41                 	db	65
+   159  0008B5  45                 	db	69
+   160  0008B6  4B                 	db	75
+   161  0008B7  31                 	db	49
+   162  0008B8  18                 	db	24
+   163  0008B9  14                 	db	20
+   164  0008BA  12                 	db	18
+   165  0008BB  7F                 	db	127
+   166  0008BC  10                 	db	16
+   167  0008BD  27                 	db	39
+   168  0008BE  45                 	db	69
+   169  0008BF  45                 	db	69
+   170  0008C0  45                 	db	69
+   171  0008C1  39                 	db	57
+   172  0008C2  3C                 	db	60
+   173  0008C3  4A                 	db	74
+   174  0008C4  49                 	db	73
+   175  0008C5  49                 	db	73
+   176  0008C6  30                 	db	48
+   177  0008C7  01                 	db	1
+   178  0008C8  71                 	db	113
+   179  0008C9  09                 	db	9
+   180  0008CA  05                 	db	5
+   181  0008CB  03                 	db	3
+   182  0008CC  36                 	db	54
+   183  0008CD  49                 	db	73
+   184  0008CE  49                 	db	73
+   185  0008CF  49                 	db	73
+   186  0008D0  36                 	db	54
+   187  0008D1  06                 	db	6
+   188  0008D2  49                 	db	73
+   189  0008D3  49                 	db	73
+   190  0008D4  29                 	db	41
+   191  0008D5  1E                 	db	30
+   192  0008D6  00                 	db	0
+   193  0008D7  36                 	db	54
+   194  0008D8  36                 	db	54
+   195  0008D9  00                 	db	0
+   196  0008DA  00                 	db	0
+   197  0008DB  00                 	db	0
+   198  0008DC  56                 	db	86
+   199  0008DD  36                 	db	54
+   200  0008DE  00                 	db	0
+   201  0008DF  00                 	db	0
+   202  0008E0  08                 	db	8
+   203  0008E1  14                 	db	20
+   204  0008E2  22                 	db	34
+   205  0008E3  41                 	db	65
+   206  0008E4  00                 	db	0
+   207  0008E5  14                 	db	20
+   208  0008E6  14                 	db	20
+   209  0008E7  14                 	db	20
+   210  0008E8  14                 	db	20
+   211  0008E9  14                 	db	20
+   212  0008EA  00                 	db	0
+   213  0008EB  41                 	db	65
+   214  0008EC  22                 	db	34
+   215  0008ED  14                 	db	20
+   216  0008EE  08                 	db	8
+   217  0008EF  02                 	db	2
+   218  0008F0  01                 	db	1
+   219  0008F1  51                 	db	81
+   220  0008F2  09                 	db	9
+   221  0008F3  06                 	db	6
+   222  0008F4  32                 	db	50
+   223  0008F5  49                 	db	73
+   224  0008F6  79                 	db	121
+   225  0008F7  41                 	db	65
+   226  0008F8  3E                 	db	62
+   227  0008F9  7E                 	db	126
+   228  0008FA  11                 	db	17
+   229  0008FB  11                 	db	17
+   230  0008FC  11                 	db	17
+   231  0008FD  7E                 	db	126
+   232  0008FE  7F                 	db	127
+   233  0008FF  49                 	db	73
+   234  000900  49                 	db	73
+   235  000901  49                 	db	73
+   236  000902  36                 	db	54
+   237  000903  3E                 	db	62
+   238  000904  41                 	db	65
+   239  000905  41                 	db	65
+   240  000906  41                 	db	65
+   241  000907  22                 	db	34
+   242  000908  7F                 	db	127
+   243  000909  41                 	db	65
+   244  00090A  41                 	db	65
+   245  00090B  22                 	db	34
+   246  00090C  1C                 	db	28
+   247  00090D  7F                 	db	127
+   248  00090E  49                 	db	73
+   249  00090F  49                 	db	73
+   250  000910  49                 	db	73
+   251  000911  41                 	db	65
+   252  000912  7F                 	db	127
+   253  000913  09                 	db	9
+   254  000914  09                 	db	9
+   255  000915  09                 	db	9
+   256  000916  01                 	db	1
+   257  000917  3E                 	db	62
+   258  000918  41                 	db	65
+   259  000919  49                 	db	73
+   260  00091A  49                 	db	73
+   261  00091B  7A                 	db	122
+   262  00091C  7F                 	db	127
+   263  00091D  08                 	db	8
+   264  00091E  08                 	db	8
+   265  00091F  08                 	db	8
+   266  000920  7F                 	db	127
+   267  000921  00                 	db	0
+   268  000922  41                 	db	65
+   269  000923  7F                 	db	127
+   270  000924  41                 	db	65
+   271  000925  00                 	db	0
+   272  000926  20                 	db	32
+   273  000927  40                 	db	64
+   274  000928  41                 	db	65
+   275  000929  3F                 	db	63
+   276  00092A  01                 	db	1
+   277  00092B  7F                 	db	127
+   278  00092C  08                 	db	8
+   279  00092D  14                 	db	20
+   280  00092E  22                 	db	34
+   281  00092F  41                 	db	65
+   282  000930  7F                 	db	127
+   283  000931  40                 	db	64
+   284  000932  40                 	db	64
+   285  000933  40                 	db	64
+   286  000934  40                 	db	64
+   287  000935  7F                 	db	127
+   288  000936  02                 	db	2
+   289  000937  0C                 	db	12
+   290  000938  02                 	db	2
+   291  000939  7F                 	db	127
+   292  00093A  7F                 	db	127
+   293  00093B  04                 	db	4
+   294  00093C  08                 	db	8
+   295  00093D  10                 	db	16
+   296  00093E  7F                 	db	127
+   297  00093F  3E                 	db	62
+   298  000940  41                 	db	65
+   299  000941  41                 	db	65
+   300  000942  41                 	db	65
+   301  000943  3E                 	db	62
+   302  000944  7F                 	db	127
+   303  000945  09                 	db	9
+   304  000946  09                 	db	9
+   305  000947  09                 	db	9
+   306  000948  06                 	db	6
+   307  000949  3E                 	db	62
+   308  00094A  41                 	db	65
+   309  00094B  51                 	db	81
+   310  00094C  21                 	db	33
+   311  00094D  5E                 	db	94
+   312  00094E  7F                 	db	127
+   313  00094F  09                 	db	9
+   314  000950  19                 	db	25
+   315  000951  29                 	db	41
+   316  000952  46                 	db	70
+   317  000953  46                 	db	70
+   318  000954  49                 	db	73
+   319  000955  49                 	db	73
+   320  000956  49                 	db	73
+   321  000957  31                 	db	49
+   322  000958  01                 	db	1
+   323  000959  01                 	db	1
+   324  00095A  7F                 	db	127
+   325  00095B  01                 	db	1
+   326  00095C  01                 	db	1
+   327  00095D  3F                 	db	63
+   328  00095E  40                 	db	64
+   329  00095F  40                 	db	64
+   330  000960  40                 	db	64
+   331  000961  3F                 	db	63
+   332  000962  1F                 	db	31
+   333  000963  20                 	db	32
+   334  000964  40                 	db	64
+   335  000965  20                 	db	32
+   336  000966  1F                 	db	31
+   337  000967  3F                 	db	63
+   338  000968  40                 	db	64
+   339  000969  38                 	db	56
+   340  00096A  40                 	db	64
+   341  00096B  3F                 	db	63
+   342  00096C  63                 	db	99
+   343  00096D  14                 	db	20
+   344  00096E  08                 	db	8
+   345  00096F  14                 	db	20
+   346  000970  63                 	db	99
+   347  000971  07                 	db	7
+   348  000972  08                 	db	8
+   349  000973  70                 	db	112
+   350  000974  08                 	db	8
+   351  000975  07                 	db	7
+   352  000976  61                 	db	97
+   353  000977  51                 	db	81
+   354  000978  49                 	db	73
+   355  000979  45                 	db	69
+   356  00097A  43                 	db	67
+   357  00097B  00                 	db	0
+   358  00097C  7F                 	db	127
+   359  00097D  41                 	db	65
+   360  00097E  41                 	db	65
+   361  00097F  00                 	db	0
+   362  000980  02                 	db	2
+   363  000981  04                 	db	4
+   364  000982  08                 	db	8
+   365  000983  10                 	db	16
+   366  000984  20                 	db	32
+   367  000985  00                 	db	0
+   368  000986  41                 	db	65
+   369  000987  41                 	db	65
+   370  000988  7F                 	db	127
+   371  000989  00                 	db	0
+   372  00098A  04                 	db	4
+   373  00098B  02                 	db	2
+   374  00098C  01                 	db	1
+   375  00098D  02                 	db	2
+   376  00098E  04                 	db	4
+   377  00098F  40                 	db	64
+   378  000990  40                 	db	64
+   379  000991  40                 	db	64
+   380  000992  40                 	db	64
+   381  000993  40                 	db	64
+   382  000994  00                 	db	0
+   383  000995  01                 	db	1
+   384  000996  02                 	db	2
+   385  000997  04                 	db	4
+   386  000998  00                 	db	0
+   387  000999  20                 	db	32
+   388  00099A  54                 	db	84
+   389  00099B  54                 	db	84
+   390  00099C  54                 	db	84
+   391  00099D  78                 	db	120
+   392  00099E  7F                 	db	127
+   393  00099F  48                 	db	72
+   394  0009A0  44                 	db	68
+   395  0009A1  44                 	db	68
+   396  0009A2  38                 	db	56
+   397  0009A3  38                 	db	56
+   398  0009A4  44                 	db	68
+   399  0009A5  44                 	db	68
+   400  0009A6  44                 	db	68
+   401  0009A7  20                 	db	32
+   402  0009A8  38                 	db	56
+   403  0009A9  44                 	db	68
+   404  0009AA  44                 	db	68
+   405  0009AB  48                 	db	72
+   406  0009AC  7F                 	db	127
+   407  0009AD  38                 	db	56
+   408  0009AE  54                 	db	84
+   409  0009AF  54                 	db	84
+   410  0009B0  54                 	db	84
+   411  0009B1  18                 	db	24
+   412  0009B2  08                 	db	8
+   413  0009B3  7E                 	db	126
+   414  0009B4  09                 	db	9
+   415  0009B5  01                 	db	1
+   416  0009B6  02                 	db	2
+   417  0009B7  0C                 	db	12
+   418  0009B8  52                 	db	82
+   419  0009B9  52                 	db	82
+   420  0009BA  52                 	db	82
+   421  0009BB  3E                 	db	62
+   422  0009BC  7F                 	db	127
+   423  0009BD  08                 	db	8
+   424  0009BE  04                 	db	4
+   425  0009BF  04                 	db	4
+   426  0009C0  78                 	db	120
+   427  0009C1  00                 	db	0
+   428  0009C2  44                 	db	68
+   429  0009C3  7D                 	db	125
+   430  0009C4  40                 	db	64
+   431  0009C5  00                 	db	0
+   432  0009C6  20                 	db	32
+   433  0009C7  40                 	db	64
+   434  0009C8  44                 	db	68
+   435  0009C9  3D                 	db	61
+   436  0009CA  00                 	db	0
+   437  0009CB  7F                 	db	127
+   438  0009CC  10                 	db	16
+   439  0009CD  28                 	db	40
+   440  0009CE  44                 	db	68
+   441  0009CF  00                 	db	0
+   442  0009D0  00                 	db	0
+   443  0009D1  41                 	db	65
+   444  0009D2  7F                 	db	127
+   445  0009D3  40                 	db	64
+   446  0009D4  00                 	db	0
+   447  0009D5  7C                 	db	124
+   448  0009D6  04                 	db	4
+   449  0009D7  18                 	db	24
+   450  0009D8  04                 	db	4
+   451  0009D9  78                 	db	120
+   452  0009DA  7C                 	db	124
+   453  0009DB  08                 	db	8
+   454  0009DC  04                 	db	4
+   455  0009DD  04                 	db	4
+   456  0009DE  78                 	db	120
+   457  0009DF  38                 	db	56
+   458  0009E0  44                 	db	68
+   459  0009E1  44                 	db	68
+   460  0009E2  44                 	db	68
+   461  0009E3  38                 	db	56
+   462  0009E4  7C                 	db	124
+   463  0009E5  14                 	db	20
+   464  0009E6  14                 	db	20
+   465  0009E7  14                 	db	20
+   466  0009E8  08                 	db	8
+   467  0009E9  08                 	db	8
+   468  0009EA  14                 	db	20
+   469  0009EB  14                 	db	20
+   470  0009EC  18                 	db	24
+   471  0009ED  7C                 	db	124
+   472  0009EE  7C                 	db	124
+   473  0009EF  08                 	db	8
+   474  0009F0  04                 	db	4
+   475  0009F1  04                 	db	4
+   476  0009F2  08                 	db	8
+   477  0009F3  48                 	db	72
+   478  0009F4  54                 	db	84
+   479  0009F5  54                 	db	84
+   480  0009F6  54                 	db	84
+   481  0009F7  20                 	db	32
+   482  0009F8  04                 	db	4
+   483  0009F9  3F                 	db	63
+   484  0009FA  44                 	db	68
+   485  0009FB  40                 	db	64
+   486  0009FC  20                 	db	32
+   487  0009FD  3C                 	db	60
+   488  0009FE  40                 	db	64
+   489  0009FF  40                 	db	64
+   490  000A00  20                 	db	32
+   491  000A01  7C                 	db	124
+   492  000A02  1C                 	db	28
+   493  000A03  20                 	db	32
+   494  000A04  40                 	db	64
+   495  000A05  20                 	db	32
+   496  000A06  1C                 	db	28
+   497  000A07  3C                 	db	60
+   498  000A08  40                 	db	64
+   499  000A09  30                 	db	48
+   500  000A0A  40                 	db	64
+   501  000A0B  3C                 	db	60
+   502  000A0C  44                 	db	68
+   503  000A0D  28                 	db	40
+   504  000A0E  10                 	db	16
+   505  000A0F  28                 	db	40
+   506  000A10  44                 	db	68
+   507  000A11  0C                 	db	12
+   508  000A12  50                 	db	80
+   509  000A13  50                 	db	80
+   510  000A14  50                 	db	80
+   511  000A15  3C                 	db	60
+   512  000A16  44                 	db	68
+   513  000A17  64                 	db	100
+   514  000A18  54                 	db	84
+   515  000A19  4C                 	db	76
+   516  000A1A  44                 	db	68
+   517  000A1B  00                 	db	0
+   518  000A1C  08                 	db	8
+   519  000A1D  36                 	db	54
+   520  000A1E  41                 	db	65
+   521  000A1F  00                 	db	0
+   522  000A20  00                 	db	0
+   523  000A21  00                 	db	0
+   524  000A22  7F                 	db	127
+   525  000A23  00                 	db	0
+   526  000A24  00                 	db	0
+   527  000A25  00                 	db	0
+   528  000A26  41                 	db	65
+   529  000A27  36                 	db	54
+   530  000A28  08                 	db	8
+   531  000A29  00                 	db	0
+   532  000A2A  10                 	db	16
+   533  000A2B  08                 	db	8
+   534  000A2C  08                 	db	8
+   535  000A2D  10                 	db	16
+   536  000A2E  08                 	db	8
+   537  000A2F  78                 	db	120
+   538  000A30  46                 	db	70
+   539  000A31  41                 	db	65
+   540  000A32  46                 	db	70
+   541  000A33  78                 	db	120
+   542  0000                     _PORTDbits	set	3971
+   543  0000                     _LATDbits	set	3980
+   544  0000                     _TRISDbits	set	3989
+   545  0000                     _TRISD	set	3989
+   546  0000                     _OSCCON	set	4051
+   547                           
+   548                           	psect	smallconst
+   549  000800                     __psmallconst:
+   550                           	opt callstack 0
+   551  000800  00                 	db	0
+   552  000801                     STR_1:
+   553  000801  44                 	db	68	;'D'
+   554  000802  4F                 	db	79	;'O'
+   555  000803  53                 	db	83	;'S'
+   556  000804  20                 	db	32
+   557  000805  4C                 	db	76	;'L'
+   558  000806  49                 	db	73	;'I'
+   559  000807  42                 	db	66	;'B'
+   560  000808  52                 	db	82	;'R'
+   561  000809  45                 	db	69	;'E'
+   562  00080A  52                 	db	82	;'R'
+   563  00080B  49                 	db	73	;'I'
+   564  00080C  41                 	db	65	;'A'
+   565  00080D  20                 	db	32
+   566  00080E  4E                 	db	78	;'N'
+   567  00080F  41                 	db	65	;'A'
+   568  000810  43                 	db	67	;'C'
+   569  000811  45                 	db	69	;'E'
+   570  000812  4E                 	db	78	;'N'
+   571  000813  00                 	db	0
+   572  000814                     STR_2:
+   573  000814  31                 	db	49	;'1'
+   574  000815  20                 	db	32
+   575  000816  53                 	db	83	;'S'
+   576  000817  50                 	db	80	;'P'
+   577  000818  49                 	db	73	;'I'
+   578  000819  20                 	db	32
+   579  00081A  50                 	db	80	;'P'
+   580  00081B  4F                 	db	79	;'O'
+   581  00081C  52                 	db	82	;'R'
+   582  00081D  20                 	db	32
+   583  00081E  53                 	db	83	;'S'
+   584  00081F  4F                 	db	79	;'O'
+   585  000820  46                 	db	70	;'F'
+   586  000821  54                 	db	84	;'T'
+   587  000822  57                 	db	87	;'W'
+   588  000823  52                 	db	82	;'R'
+   589  000824  45                 	db	69	;'E'
+   590  000825  00                 	db	0
+   591  000826                     STR_3:
+   592  000826  32                 	db	50	;'2'
+   593  000827  20                 	db	32
+   594  000828  4C                 	db	76	;'L'
+   595  000829  49                 	db	73	;'I'
+   596  00082A  42                 	db	66	;'B'
+   597  00082B  52                 	db	82	;'R'
+   598  00082C  45                 	db	69	;'E'
+   599  00082D  52                 	db	82	;'R'
+   600  00082E  49                 	db	73	;'I'
+   601  00082F  41                 	db	65	;'A'
+   602  000830  20                 	db	32
+   603  000831  50                 	db	80	;'P'
+   604  000832  41                 	db	65	;'A'
+   605  000833  52                 	db	82	;'R'
+   606  000834  41                 	db	65	;'A'
+   607  000835  20                 	db	32
+   608  000836  00                 	db	0
+   609  000837                     STR_5:
+   610  000837  41                 	db	65	;'A'
+   611  000838  64                 	db	100	;'d'
+   612  000839  69                 	db	105	;'i'
+   613  00083A  6F                 	db	111	;'o'
+   614  00083B  73                 	db	115	;'s'
+   615  00083C  20                 	db	32
+   616  00083D  70                 	db	112	;'p'
+   617  00083E  69                 	db	105	;'i'
+   618  00083F  63                 	db	99	;'c'
+   619  000840  31                 	db	49	;'1'
+   620  000841  38                 	db	56	;'8'
+   621  000842  66                 	db	102	;'f'
+   622  000843  34                 	db	52	;'4'
+   623  000844  35                 	db	53	;'5'
+   624  000845  35                 	db	53	;'5'
+   625  000846  30                 	db	48	;'0'
+   626  000847  00                 	db	0
+   627  000848                     STR_4:
+   628  000848  4E                 	db	78	;'N'
+   629  000849  6F                 	db	111	;'o'
+   630  00084A  6B                 	db	107	;'k'
+   631  00084B  69                 	db	105	;'i'
+   632  00084C  61                 	db	97	;'a'
+   633  00084D  20                 	db	32
+   634  00084E  35                 	db	53	;'5'
+   635  00084F  31                 	db	49	;'1'
+   636  000850  31                 	db	49	;'1'
+   637  000851  30                 	db	48	;'0'
+   638  000852  00                 	db	0
+   639                           
+   640                           ; #config settings
+   641  000853  00                 	db	0	; dummy byte at the end
+   642  0000                     
+   643                           	psect	cinit
+   644  000BBA                     __pcinit:
+   645                           	opt callstack 0
+   646  000BBA                     start_initialization:
+   647                           	opt callstack 0
+   648  000BBA                     __initialization:
+   649                           	opt callstack 0
+   650                           
+   651                           ; Initialize objects allocated to BIGRAM (480 bytes)
+   652                           ; load TBLPTR registers with __pidataBIGRAM
+   653  000BBA  0E54               	movlw	low __pidataBIGRAM
+   654  000BBC  6EF6               	movwf	tblptrl,c
+   655  000BBE  0E08               	movlw	high __pidataBIGRAM
+   656  000BC0  6EF7               	movwf	tblptrh,c
+   657  000BC2  0E00               	movlw	low (__pidataBIGRAM shr (0+16))
+   658  000BC4  6EF8               	movwf	tblptru,c
+   659  000BC6  EE06  F020         	lfsr	0,__pdataBIGRAM
+   660  000BCA  EE11 F0E0          	lfsr	1,480
+   661  000BCE                     copy_data0:
+   662  000BCE  0009               	tblrd		*+
+   663  000BD0  CFF5 FFEE          	movff	tablat,postinc0
+   664  000BD4  50E5               	movf	postdec1,w,c
+   665  000BD6  50E1               	movf	fsr1l,w,c
+   666  000BD8  E1FA               	bnz	copy_data0
+   667  000BDA  50E2               	movf	fsr1h,w,c
+   668  000BDC  E1F8               	bnz	copy_data0
+   669  000BDE                     end_of_initialization:
+   670                           	opt callstack 0
+   671  000BDE                     __end_of__initialization:
+   672                           	opt callstack 0
+   673  000BDE  0E00               	movlw	low (__Lsmallconst shr (0+16))
+   674  000BE0  6EF8               	movwf	tblptru,c
+   675  000BE2  0E08               	movlw	high __Lsmallconst
+   676  000BE4  6EF7               	movwf	tblptrh,c
+   677  000BE6  0100               	movlb	0
+   678  000BE8  EF1A  F005         	goto	_main	;jump to C main() function
+   679                           
+   680                           	psect	dataBIGRAM
+   681  000620                     __pdataBIGRAM:
+   682                           	opt callstack 0
+   683  000620                     _font:
+   684                           	opt callstack 0
+   685  000620                     	ds	480
+   686                           
+   687                           	psect	cstackCOMRAM
+   688  000001                     __pcstackCOMRAM:
+   689                           	opt callstack 0
+   690  000001                     ??_spi_write:
+   691  000001                     
+   692                           ; 1 bytes @ 0x0
+   693  000001                     	ds	3
+   694  000004                     spi_write@data:
+   695                           	opt callstack 0
+   696                           
+   697                           ; 1 bytes @ 0x3
+   698  000004                     	ds	1
+   699  000005                     spi_write@i:
+   700                           	opt callstack 0
+   701                           
+   702                           ; 2 bytes @ 0x4
+   703  000005                     	ds	2
+   704  000007                     ??_Nokia_SendData:
+   705  000007                     Nokia_SendCommand@cmd:
+   706                           	opt callstack 0
+   707  000007                     Nokia_Clear@i:
+   708                           	opt callstack 0
+   709                           
+   710                           ; 1 bytes @ 0x6
+   711  000007                     	ds	1
+   712  000008                     ??_Nokia_Init:
+   713  000008                     Nokia_PositionXY@Y:
+   714                           	opt callstack 0
+   715  000008                     Nokia_Clear@j:
+   716                           	opt callstack 0
+   717                           
+   718                           ; 1 bytes @ 0x7
+   719  000008                     	ds	1
+   720  000009                     Nokia_PositionXY@X:
+   721                           	opt callstack 0
+   722                           
+   723                           ; 1 bytes @ 0x8
+   724  000009                     	ds	2
+   725  00000B                     Nokia_SendData@dat:
+   726                           	opt callstack 0
+   727                           
+   728                           ; 1 bytes @ 0xA
+   729  00000B                     	ds	1
+   730  00000C                     Nokia_SendData@i:
+   731                           	opt callstack 0
+   732                           
+   733                           ; 1 bytes @ 0xB
+   734  00000C                     	ds	1
+   735  00000D                     Nokia_SendString@data:
+   736                           	opt callstack 0
+   737                           
+   738                           ; 2 bytes @ 0xC
+   739  00000D                     	ds	2
+   740  00000F                     ??_main:
+   741                           
+   742                           ; 1 bytes @ 0xE
+   743  00000F                     	ds	2
+   744                           
+   745 ;;
+   746 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   747 ;;
+   748 ;; *************** function _main *****************
+   749 ;; Defined at:
+   750 ;;		line 18 in file "nokia_5110.c"
+   751 ;; Parameters:    Size  Location     Type
+   752 ;;		None
+   753 ;; Auto vars:     Size  Location     Type
+   754 ;;		None
+   755 ;; Return value:  Size  Location     Type
+   756 ;;                  1    wreg      void 
+   757 ;; Registers used:
+   758 ;;		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+   759 ;; Tracked objects:
+   760 ;;		On entry : 0/0
+   761 ;;		On exit  : 0/0
+   762 ;;		Unchanged: 0/0
+   763 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   764 ;;      Params:         0       0       0       0       0       0       0       0       0
+   765 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   766 ;;      Temps:          2       0       0       0       0       0       0       0       0
+   767 ;;      Totals:         2       0       0       0       0       0       0       0       0
+   768 ;;Total ram usage:        2 bytes
+   769 ;; Hardware stack levels required when called:    3
+   770 ;; This function calls:
+   771 ;;		_Nokia_Clear
+   772 ;;		_Nokia_Init
+   773 ;;		_Nokia_PositionXY
+   774 ;;		_Nokia_SendString
+   775 ;;		_spi_init_master
+   776 ;; This function is called by:
+   777 ;;		Startup code after reset
+   778 ;; This function uses a non-reentrant model
+   779 ;;
+   780                           
+   781                           	psect	text0
+   782  000A34                     __ptext0:
+   783                           	opt callstack 0
+   784  000A34                     _main:
+   785                           	opt callstack 28
+   786                           
+   787                           ;nokia_5110.c: 19:     OSCCON = 0X72;
+   788                           
+   789                           ;incstack = 0
+   790  000A34  0E72               	movlw	114
+   791  000A36  6ED3               	movwf	4051,c	;volatile
+   792                           
+   793                           ;nokia_5110.c: 20:     TRISD = 0;
+   794  000A38  0E00               	movlw	0
+   795  000A3A  6E95               	movwf	3989,c	;volatile
+   796                           
+   797                           ;nokia_5110.c: 21:     spi_init_master();
+   798  000A3C  EC30  F006         	call	_spi_init_master	;wreg free
+   799                           
+   800                           ;nokia_5110.c: 22:     Nokia_Init();
+   801  000A40  ECBC  F005         	call	_Nokia_Init	;wreg free
+   802                           
+   803                           ;nokia_5110.c: 23:     Nokia_Clear();
+   804  000A44  EC0B  F006         	call	_Nokia_Clear	;wreg free
+   805                           
+   806                           ;nokia_5110.c: 26:     Nokia_PositionXY(0,1);
+   807  000A48  0E01               	movlw	1
+   808  000A4A  6E08               	movwf	Nokia_PositionXY@Y,c
+   809  000A4C  0E00               	movlw	0
+   810  000A4E  EC1E  F006         	call	_Nokia_PositionXY
+   811                           
+   812                           ;nokia_5110.c: 27:     Nokia_SendString("DOS LIBRERIA NACEN");
+   813  000A52  0E01               	movlw	low STR_1
+   814  000A54  6E0D               	movwf	Nokia_SendString@data,c
+   815  000A56  0E08               	movlw	high STR_1
+   816  000A58  6E0E               	movwf	Nokia_SendString@data+1,c
+   817  000A5A  ECF6  F005         	call	_Nokia_SendString	;wreg free
+   818                           
+   819                           ;nokia_5110.c: 28:     Nokia_PositionXY(0,2);
+   820  000A5E  0E02               	movlw	2
+   821  000A60  6E08               	movwf	Nokia_PositionXY@Y,c
+   822  000A62  0E00               	movlw	0
+   823  000A64  EC1E  F006         	call	_Nokia_PositionXY
+   824                           
+   825                           ;nokia_5110.c: 29:     Nokia_SendString("1 SPI POR SOFTWRE");
+   826  000A68  0E14               	movlw	low STR_2
+   827  000A6A  6E0D               	movwf	Nokia_SendString@data,c
+   828  000A6C  0E08               	movlw	high STR_2
+   829  000A6E  6E0E               	movwf	Nokia_SendString@data+1,c
+   830  000A70  ECF6  F005         	call	_Nokia_SendString	;wreg free
+   831                           
+   832                           ;nokia_5110.c: 30:     Nokia_PositionXY(0,3);
+   833  000A74  0E03               	movlw	3
+   834  000A76  6E08               	movwf	Nokia_PositionXY@Y,c
+   835  000A78  0E00               	movlw	0
+   836  000A7A  EC1E  F006         	call	_Nokia_PositionXY
+   837                           
+   838                           ;nokia_5110.c: 31:     Nokia_SendString("2 LIBRERIA PARA ");
+   839  000A7E  0E26               	movlw	low STR_3
+   840  000A80  6E0D               	movwf	Nokia_SendString@data,c
+   841  000A82  0E08               	movlw	high STR_3
+   842  000A84  6E0E               	movwf	Nokia_SendString@data+1,c
+   843  000A86  ECF6  F005         	call	_Nokia_SendString	;wreg free
+   844                           
+   845                           ;nokia_5110.c: 32:     Nokia_PositionXY(0,4);
+   846  000A8A  0E04               	movlw	4
+   847  000A8C  6E08               	movwf	Nokia_PositionXY@Y,c
+   848  000A8E  0E00               	movlw	0
+   849  000A90  EC1E  F006         	call	_Nokia_PositionXY
+   850                           
+   851                           ;nokia_5110.c: 33:     Nokia_SendString("Nokia 5110");
+   852  000A94  0E48               	movlw	low STR_4
+   853  000A96  6E0D               	movwf	Nokia_SendString@data,c
+   854  000A98  0E08               	movlw	high STR_4
+   855  000A9A  6E0E               	movwf	Nokia_SendString@data+1,c
+   856  000A9C  ECF6  F005         	call	_Nokia_SendString	;wreg free
+   857  000AA0                     l950:
+   858                           
+   859                           ;nokia_5110.c: 39:         _delay((unsigned long)((3000)*(8000000UL/4000.0)));
+   860  000AA0  0E1F               	movlw	31
+   861  000AA2  6E10               	movwf	(??_main+1)& (0+255),c
+   862  000AA4  0E71               	movlw	113
+   863  000AA6  6E0F               	movwf	??_main& (0+255),c
+   864  000AA8  0E1E               	movlw	30
+   865  000AAA                     u137:
+   866  000AAA  2EE8               	decfsz	wreg,f,c
+   867  000AAC  D7FE               	bra	u137
+   868  000AAE  2E0F               	decfsz	??_main& (0+255),f,c
+   869  000AB0  D7FC               	bra	u137
+   870  000AB2  2E10               	decfsz	(??_main+1)& (0+255),f,c
+   871  000AB4  D7FA               	bra	u137
+   872  000AB6  D000               	nop2	
+   873                           
+   874                           ;nokia_5110.c: 40:         Nokia_Clear();
+   875  000AB8  EC0B  F006         	call	_Nokia_Clear	;wreg free
+   876                           
+   877                           ;nokia_5110.c: 41:         Nokia_PositionXY(0,2);
+   878  000ABC  0E02               	movlw	2
+   879  000ABE  6E08               	movwf	Nokia_PositionXY@Y,c
+   880  000AC0  0E00               	movlw	0
+   881  000AC2  EC1E  F006         	call	_Nokia_PositionXY
+   882                           
+   883                           ;nokia_5110.c: 42:         Nokia_SendString("Adios pic18f4550");
+   884  000AC6  0E37               	movlw	low STR_5
+   885  000AC8  6E0D               	movwf	Nokia_SendString@data,c
+   886  000ACA  0E08               	movlw	high STR_5
+   887  000ACC  6E0E               	movwf	Nokia_SendString@data+1,c
+   888  000ACE  ECF6  F005         	call	_Nokia_SendString	;wreg free
+   889  000AD2  D7E6               	goto	l950
+   890  000AD4                     __end_of_main:
+   891                           	opt callstack 0
+   892                           
+   893 ;; *************** function _spi_init_master *****************
+   894 ;; Defined at:
+   895 ;;		line 7 in file "spi_sof.c"
+   896 ;; Parameters:    Size  Location     Type
+   897 ;;		None
+   898 ;; Auto vars:     Size  Location     Type
+   899 ;;		None
+   900 ;; Return value:  Size  Location     Type
+   901 ;;                  1    wreg      void 
+   902 ;; Registers used:
+   903 ;;		None
+   904 ;; Tracked objects:
+   905 ;;		On entry : 0/0
+   906 ;;		On exit  : 0/0
+   907 ;;		Unchanged: 0/0
+   908 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   909 ;;      Params:         0       0       0       0       0       0       0       0       0
+   910 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   911 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   912 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   913 ;;Total ram usage:        0 bytes
+   914 ;; Hardware stack levels used:    1
+   915 ;; This function calls:
+   916 ;;		Nothing
+   917 ;; This function is called by:
+   918 ;;		_main
+   919 ;; This function uses a non-reentrant model
+   920 ;;
+   921                           
+   922                           	psect	text1
+   923  000C60                     __ptext1:
+   924                           	opt callstack 0
+   925  000C60                     _spi_init_master:
+   926                           	opt callstack 30
+   927                           
+   928                           ;spi_sof.c: 10:     TRISDbits.RD0 = 0;
+   929                           
+   930                           ;incstack = 0
+   931  000C60  9095               	bcf	3989,0,c	;volatile
+   932                           
+   933                           ;spi_sof.c: 11:     TRISDbits.RD1 = 1;
+   934  000C62  8295               	bsf	3989,1,c	;volatile
+   935                           
+   936                           ;spi_sof.c: 12:     TRISDbits.RD2 = 0;
+   937  000C64  9495               	bcf	3989,2,c	;volatile
+   938                           
+   939                           ;spi_sof.c: 13:     TRISDbits.RD3 = 0;
+   940  000C66  9695               	bcf	3989,3,c	;volatile
+   941  000C68  0012               	return		;funcret
+   942  000C6A                     __end_of_spi_init_master:
+   943                           	opt callstack 0
+   944                           
+   945 ;; *************** function _Nokia_SendString *****************
+   946 ;; Defined at:
+   947 ;;		line 25 in file "lib_nokia.c"
+   948 ;; Parameters:    Size  Location     Type
+   949 ;;  data            2   12[COMRAM] PTR unsigned char 
+   950 ;;		 -> STR_5(17), STR_4(11), STR_3(17), STR_2(18), 
+   951 ;;		 -> STR_1(19), 
+   952 ;; Auto vars:     Size  Location     Type
+   953 ;;  i               1    0        unsigned char 
+   954 ;; Return value:  Size  Location     Type
+   955 ;;                  1    wreg      void 
+   956 ;; Registers used:
+   957 ;;		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+   958 ;; Tracked objects:
+   959 ;;		On entry : 0/0
+   960 ;;		On exit  : 0/0
+   961 ;;		Unchanged: 0/0
+   962 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   963 ;;      Params:         2       0       0       0       0       0       0       0       0
+   964 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   965 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   966 ;;      Totals:         2       0       0       0       0       0       0       0       0
+   967 ;;Total ram usage:        2 bytes
+   968 ;; Hardware stack levels used:    1
+   969 ;; Hardware stack levels required when called:    2
+   970 ;; This function calls:
+   971 ;;		_Nokia_SendData
+   972 ;; This function is called by:
+   973 ;;		_main
+   974 ;; This function uses a non-reentrant model
+   975 ;;
+   976                           
+   977                           	psect	text2
+   978  000BEC                     __ptext2:
+   979                           	opt callstack 0
+   980  000BEC                     _Nokia_SendString:
+   981                           	opt callstack 28
+   982                           
+   983                           ;lib_nokia.c: 25: void Nokia_SendString(char *data);lib_nokia.c: 26: {;lib_nokia.c: 27: 
+      +                              char i;;lib_nokia.c: 28:     while((*data)!=0)
+   984                           
+   985                           ;incstack = 0
+   986  000BEC  D00A               	goto	l924
+   987  000BEE                     l920:
+   988                           
+   989                           ;lib_nokia.c: 29:     {;lib_nokia.c: 30:         Nokia_SendData(*data);
+   990  000BEE  C00D  FFF6         	movff	Nokia_SendString@data,tblptrl
+   991  000BF2  C00E  FFF7         	movff	Nokia_SendString@data+1,tblptrh
+   992  000BF6                     	if	0	;tblptru may be non-zero
+   993  000BF6                     	endif
+   994  000BF6                     	if	0	;tblptru may be non-zero
+   995  000BF6                     	endif
+   996  000BF6  0008               	tblrd		*
+   997  000BF8  50F5               	movf	tablat,w,c
+   998  000BFA  EC96  F005         	call	_Nokia_SendData
+   999                           
+  1000                           ;lib_nokia.c: 31:         data++;
+  1001  000BFE  4A0D               	infsnz	Nokia_SendString@data,f,c
+  1002  000C00  2A0E               	incf	Nokia_SendString@data+1,f,c
+  1003  000C02                     l924:
+  1004                           
+  1005                           ;lib_nokia.c: 28:     while((*data)!=0)
+  1006  000C02  C00D  FFF6         	movff	Nokia_SendString@data,tblptrl
+  1007  000C06  C00E  FFF7         	movff	Nokia_SendString@data+1,tblptrh
+  1008  000C0A                     	if	0	;tblptru may be non-zero
+  1009  000C0A                     	endif
+  1010  000C0A                     	if	0	;tblptru may be non-zero
+  1011  000C0A                     	endif
+  1012  000C0A  0008               	tblrd		*
+  1013  000C0C  50F5               	movf	tablat,w,c
+  1014  000C0E  0900               	iorlw	0
+  1015  000C10  B4D8               	btfsc	status,2,c
+  1016  000C12  0012               	return	
+  1017  000C14  D7EC               	goto	l920
+  1018  000C16                     __end_of_Nokia_SendString:
+  1019                           	opt callstack 0
+  1020                           
+  1021 ;; *************** function _Nokia_SendData *****************
+  1022 ;; Defined at:
+  1023 ;;		line 14 in file "lib_nokia.c"
+  1024 ;; Parameters:    Size  Location     Type
+  1025 ;;  dat             1    wreg     unsigned char 
+  1026 ;; Auto vars:     Size  Location     Type
+  1027 ;;  dat             1   10[COMRAM] unsigned char 
+  1028 ;;  i               1   11[COMRAM] unsigned char 
+  1029 ;; Return value:  Size  Location     Type
+  1030 ;;                  1    wreg      void 
+  1031 ;; Registers used:
+  1032 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+  1033 ;; Tracked objects:
+  1034 ;;		On entry : 0/0
+  1035 ;;		On exit  : 0/0
+  1036 ;;		Unchanged: 0/0
+  1037 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1038 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1039 ;;      Locals:         2       0       0       0       0       0       0       0       0
+  1040 ;;      Temps:          4       0       0       0       0       0       0       0       0
+  1041 ;;      Totals:         6       0       0       0       0       0       0       0       0
+  1042 ;;Total ram usage:        6 bytes
+  1043 ;; Hardware stack levels used:    1
+  1044 ;; Hardware stack levels required when called:    1
+  1045 ;; This function calls:
+  1046 ;;		_spi_write
+  1047 ;; This function is called by:
+  1048 ;;		_Nokia_SendString
+  1049 ;; This function uses a non-reentrant model
+  1050 ;;
+  1051                           
+  1052                           	psect	text3
+  1053  000B2C                     __ptext3:
+  1054                           	opt callstack 0
+  1055  000B2C                     _Nokia_SendData:
+  1056                           	opt callstack 28
+  1057                           
+  1058                           ;incstack = 0
+  1059                           ;Nokia_SendData@dat stored from wreg
+  1060  000B2C  6E0B               	movwf	Nokia_SendData@dat,c
+  1061                           
+  1062                           ;lib_nokia.c: 14: void Nokia_SendData(char dat);lib_nokia.c: 15: {;lib_nokia.c: 16:     
+      +                          char i;;lib_nokia.c: 17:     LATDbits.LATD4 = 1;
+  1063  000B2E  888C               	bsf	3980,4,c	;volatile
+  1064                           
+  1065                           ;lib_nokia.c: 18:     LATDbits.LATD3 = 0;
+  1066  000B30  968C               	bcf	3980,3,c	;volatile
+  1067                           
+  1068                           ;lib_nokia.c: 19:     for(i=0;i<5;i++){
+  1069  000B32  0E00               	movlw	0
+  1070  000B34  6E0C               	movwf	Nokia_SendData@i,c
+  1071  000B36                     l796:
+  1072                           
+  1073                           ;lib_nokia.c: 20:         spi_write(font[(dat) - (0x20)][i]);
+  1074  000B36  500B               	movf	Nokia_SendData@dat,w,c
+  1075  000B38  0D05               	mullw	5
+  1076  000B3A  0E60               	movlw	96
+  1077  000B3C  6E07               	movwf	??_Nokia_SendData& (0+255),c
+  1078  000B3E  0EFF               	movlw	255
+  1079  000B40  6E08               	movwf	(??_Nokia_SendData+1)& (0+255),c
+  1080  000B42  0E20               	movlw	low _font
+  1081  000B44  6E09               	movwf	(??_Nokia_SendData+2)& (0+255),c
+  1082  000B46  0E06               	movlw	high _font
+  1083  000B48  6E0A               	movwf	(??_Nokia_SendData+3)& (0+255),c
+  1084  000B4A  5007               	movf	??_Nokia_SendData,w,c
+  1085  000B4C  2609               	addwf	??_Nokia_SendData+2,f,c
+  1086  000B4E  5008               	movf	??_Nokia_SendData+1,w,c
+  1087  000B50  220A               	addwfc	??_Nokia_SendData+3,f,c
+  1088  000B52  50F3               	movf	prodl,w,c
+  1089  000B54  2609               	addwf	??_Nokia_SendData+2,f,c
+  1090  000B56  50F4               	movf	prodh,w,c
+  1091  000B58  220A               	addwfc	??_Nokia_SendData+3,f,c
+  1092  000B5A  500C               	movf	Nokia_SendData@i,w,c
+  1093  000B5C  2409               	addwf	??_Nokia_SendData+2,w,c
+  1094  000B5E  6ED9               	movwf	fsr2l,c
+  1095  000B60  0E00               	movlw	0
+  1096  000B62  200A               	addwfc	??_Nokia_SendData+3,w,c
+  1097  000B64  6EDA               	movwf	fsr2h,c
+  1098  000B66  50DF               	movf	indf2,w,c
+  1099  000B68  EC6A  F005         	call	_spi_write
+  1100                           
+  1101                           ;lib_nokia.c: 21:     }
+  1102  000B6C  2A0C               	incf	Nokia_SendData@i,f,c
+  1103  000B6E  0E04               	movlw	4
+  1104  000B70  640C               	cpfsgt	Nokia_SendData@i,c
+  1105  000B72  D7E1               	goto	l796
+  1106                           
+  1107                           ;lib_nokia.c: 22:     LATDbits.LATD3 = 1;
+  1108  000B74  868C               	bsf	3980,3,c	;volatile
+  1109  000B76  0012               	return		;funcret
+  1110  000B78                     __end_of_Nokia_SendData:
+  1111                           	opt callstack 0
+  1112                           
+  1113 ;; *************** function _Nokia_PositionXY *****************
+  1114 ;; Defined at:
+  1115 ;;		line 35 in file "lib_nokia.c"
+  1116 ;; Parameters:    Size  Location     Type
+  1117 ;;  X               1    wreg     unsigned char 
+  1118 ;;  Y               1    7[COMRAM] unsigned char 
+  1119 ;; Auto vars:     Size  Location     Type
+  1120 ;;  X               1    8[COMRAM] unsigned char 
+  1121 ;; Return value:  Size  Location     Type
+  1122 ;;                  1    wreg      void 
+  1123 ;; Registers used:
+  1124 ;;		wreg, status,2, status,0, cstack
+  1125 ;; Tracked objects:
+  1126 ;;		On entry : 0/0
+  1127 ;;		On exit  : 0/0
+  1128 ;;		Unchanged: 0/0
+  1129 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1130 ;;      Params:         1       0       0       0       0       0       0       0       0
+  1131 ;;      Locals:         1       0       0       0       0       0       0       0       0
+  1132 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1133 ;;      Totals:         2       0       0       0       0       0       0       0       0
+  1134 ;;Total ram usage:        2 bytes
+  1135 ;; Hardware stack levels used:    1
+  1136 ;; Hardware stack levels required when called:    2
+  1137 ;; This function calls:
+  1138 ;;		_Nokia_SendCommand
+  1139 ;; This function is called by:
+  1140 ;;		_main
+  1141 ;; This function uses a non-reentrant model
+  1142 ;;
+  1143                           
+  1144                           	psect	text4
+  1145  000C3C                     __ptext4:
+  1146                           	opt callstack 0
+  1147  000C3C                     _Nokia_PositionXY:
+  1148                           	opt callstack 28
+  1149                           
+  1150                           ;incstack = 0
+  1151                           ;Nokia_PositionXY@X stored from wreg
+  1152  000C3C  6E09               	movwf	Nokia_PositionXY@X,c
+  1153                           
+  1154                           ;lib_nokia.c: 35: void Nokia_PositionXY(char X, char Y);lib_nokia.c: 36: {;lib_nokia.c: 
+      +                          37:     Nokia_SendCommand(0x80 | X);
+  1155  000C3E  5009               	movf	Nokia_PositionXY@X,w,c
+  1156  000C40  0980               	iorlw	128
+  1157  000C42  EC28  F006         	call	_Nokia_SendCommand
+  1158                           
+  1159                           ;lib_nokia.c: 38:     Nokia_SendCommand(0x40 | Y);
+  1160  000C46  5008               	movf	Nokia_PositionXY@Y,w,c
+  1161  000C48  0940               	iorlw	64
+  1162  000C4A  EC28  F006         	call	_Nokia_SendCommand
+  1163  000C4E  0012               	return		;funcret
+  1164  000C50                     __end_of_Nokia_PositionXY:
+  1165                           	opt callstack 0
+  1166                           
+  1167 ;; *************** function _Nokia_Init *****************
+  1168 ;; Defined at:
+  1169 ;;		line 41 in file "lib_nokia.c"
+  1170 ;; Parameters:    Size  Location     Type
+  1171 ;;		None
+  1172 ;; Auto vars:     Size  Location     Type
+  1173 ;;		None
+  1174 ;; Return value:  Size  Location     Type
+  1175 ;;                  1    wreg      void 
+  1176 ;; Registers used:
+  1177 ;;		wreg, status,2, status,0, cstack
+  1178 ;; Tracked objects:
+  1179 ;;		On entry : 0/0
+  1180 ;;		On exit  : 0/0
+  1181 ;;		Unchanged: 0/0
+  1182 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1183 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1184 ;;      Locals:         0       0       0       0       0       0       0       0       0
+  1185 ;;      Temps:          2       0       0       0       0       0       0       0       0
+  1186 ;;      Totals:         2       0       0       0       0       0       0       0       0
+  1187 ;;Total ram usage:        2 bytes
+  1188 ;; Hardware stack levels used:    1
+  1189 ;; Hardware stack levels required when called:    2
+  1190 ;; This function calls:
+  1191 ;;		_Nokia_SendCommand
+  1192 ;; This function is called by:
+  1193 ;;		_main
+  1194 ;; This function uses a non-reentrant model
+  1195 ;;
+  1196                           
+  1197                           	psect	text5
+  1198  000B78                     __ptext5:
+  1199                           	opt callstack 0
+  1200  000B78                     _Nokia_Init:
+  1201                           	opt callstack 28
+  1202                           
+  1203                           ;lib_nokia.c: 44:     LATDbits.LATD5 = 0;
+  1204                           
+  1205                           ;incstack = 0
+  1206  000B78  9A8C               	bcf	3980,5,c	;volatile
+  1207                           
+  1208                           ;lib_nokia.c: 46:     _delay((unsigned long)((100)*(8000000UL/4000.0)));
+  1209  000B7A  0E02               	movlw	2
+  1210  000B7C  6E09               	movwf	(??_Nokia_Init+1)& (0+255),c
+  1211  000B7E  0E04               	movlw	4
+  1212  000B80  6E08               	movwf	??_Nokia_Init& (0+255),c
+  1213  000B82  0EBA               	movlw	186
+  1214  000B84                     u147:
+  1215  000B84  2EE8               	decfsz	wreg,f,c
+  1216  000B86  D7FE               	bra	u147
+  1217  000B88  2E08               	decfsz	??_Nokia_Init& (0+255),f,c
+  1218  000B8A  D7FC               	bra	u147
+  1219  000B8C  2E09               	decfsz	(??_Nokia_Init+1)& (0+255),f,c
+  1220  000B8E  D7FA               	bra	u147
+  1221  000B90  D000               	nop2	
+  1222                           
+  1223                           ;lib_nokia.c: 48:     LATDbits.LATD5 = 1;
+  1224  000B92  8A8C               	bsf	3980,5,c	;volatile
+  1225                           
+  1226                           ;lib_nokia.c: 49:     Nokia_SendCommand(0x21);
+  1227  000B94  0E21               	movlw	33
+  1228  000B96  EC28  F006         	call	_Nokia_SendCommand
+  1229                           
+  1230                           ;lib_nokia.c: 50:     Nokia_SendCommand(0x13);
+  1231  000B9A  0E13               	movlw	19
+  1232  000B9C  EC28  F006         	call	_Nokia_SendCommand
+  1233                           
+  1234                           ;lib_nokia.c: 51:     Nokia_SendCommand(0x07);
+  1235  000BA0  0E07               	movlw	7
+  1236  000BA2  EC28  F006         	call	_Nokia_SendCommand
+  1237                           
+  1238                           ;lib_nokia.c: 52:     Nokia_SendCommand(0xC0);
+  1239  000BA6  0EC0               	movlw	192
+  1240  000BA8  EC28  F006         	call	_Nokia_SendCommand
+  1241                           
+  1242                           ;lib_nokia.c: 53:     Nokia_SendCommand(0x20);
+  1243  000BAC  0E20               	movlw	32
+  1244  000BAE  EC28  F006         	call	_Nokia_SendCommand
+  1245                           
+  1246                           ;lib_nokia.c: 54:     Nokia_SendCommand(0x0C);
+  1247  000BB2  0E0C               	movlw	12
+  1248  000BB4  EC28  F006         	call	_Nokia_SendCommand
+  1249  000BB8  0012               	return		;funcret
+  1250  000BBA                     __end_of_Nokia_Init:
+  1251                           	opt callstack 0
+  1252                           
+  1253 ;; *************** function _Nokia_SendCommand *****************
+  1254 ;; Defined at:
+  1255 ;;		line 7 in file "lib_nokia.c"
+  1256 ;; Parameters:    Size  Location     Type
+  1257 ;;  cmd             1    wreg     unsigned char 
+  1258 ;; Auto vars:     Size  Location     Type
+  1259 ;;  cmd             1    6[COMRAM] unsigned char 
+  1260 ;; Return value:  Size  Location     Type
+  1261 ;;                  1    wreg      void 
+  1262 ;; Registers used:
+  1263 ;;		wreg, status,2, status,0, cstack
+  1264 ;; Tracked objects:
+  1265 ;;		On entry : 0/0
+  1266 ;;		On exit  : 0/0
+  1267 ;;		Unchanged: 0/0
+  1268 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1269 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1270 ;;      Locals:         1       0       0       0       0       0       0       0       0
+  1271 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1272 ;;      Totals:         1       0       0       0       0       0       0       0       0
+  1273 ;;Total ram usage:        1 bytes
+  1274 ;; Hardware stack levels used:    1
+  1275 ;; Hardware stack levels required when called:    1
+  1276 ;; This function calls:
+  1277 ;;		_spi_write
+  1278 ;; This function is called by:
+  1279 ;;		_Nokia_PositionXY
+  1280 ;;		_Nokia_Init
+  1281 ;; This function uses a non-reentrant model
+  1282 ;;
+  1283                           
+  1284                           	psect	text6
+  1285  000C50                     __ptext6:
+  1286                           	opt callstack 0
+  1287  000C50                     _Nokia_SendCommand:
+  1288                           	opt callstack 28
+  1289                           
+  1290                           ;incstack = 0
+  1291                           ;Nokia_SendCommand@cmd stored from wreg
+  1292  000C50  6E07               	movwf	Nokia_SendCommand@cmd,c
+  1293                           
+  1294                           ;lib_nokia.c: 7: void Nokia_SendCommand(char cmd);lib_nokia.c: 8: {;lib_nokia.c: 9:     
+      +                          LATDbits.LATD4 = 0;
+  1295  000C52  988C               	bcf	3980,4,c	;volatile
+  1296                           
+  1297                           ;lib_nokia.c: 10:     LATDbits.LATD3 = 0;
+  1298  000C54  968C               	bcf	3980,3,c	;volatile
+  1299                           
+  1300                           ;lib_nokia.c: 11:     spi_write(cmd);
+  1301  000C56  5007               	movf	Nokia_SendCommand@cmd,w,c
+  1302  000C58  EC6A  F005         	call	_spi_write
+  1303                           
+  1304                           ;lib_nokia.c: 12:     LATDbits.LATD3 = 1;
+  1305  000C5C  868C               	bsf	3980,3,c	;volatile
+  1306  000C5E  0012               	return		;funcret
+  1307  000C60                     __end_of_Nokia_SendCommand:
+  1308                           	opt callstack 0
+  1309                           
+  1310 ;; *************** function _Nokia_Clear *****************
+  1311 ;; Defined at:
+  1312 ;;		line 58 in file "lib_nokia.c"
+  1313 ;; Parameters:    Size  Location     Type
+  1314 ;;		None
+  1315 ;; Auto vars:     Size  Location     Type
+  1316 ;;  j               1    7[COMRAM] unsigned char 
+  1317 ;;  i               1    6[COMRAM] unsigned char 
+  1318 ;; Return value:  Size  Location     Type
+  1319 ;;                  1    wreg      void 
+  1320 ;; Registers used:
+  1321 ;;		wreg, status,2, status,0, cstack
+  1322 ;; Tracked objects:
+  1323 ;;		On entry : 0/0
+  1324 ;;		On exit  : 0/0
+  1325 ;;		Unchanged: 0/0
+  1326 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1327 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1328 ;;      Locals:         2       0       0       0       0       0       0       0       0
+  1329 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1330 ;;      Totals:         2       0       0       0       0       0       0       0       0
+  1331 ;;Total ram usage:        2 bytes
+  1332 ;; Hardware stack levels used:    1
+  1333 ;; Hardware stack levels required when called:    1
+  1334 ;; This function calls:
+  1335 ;;		_spi_write
+  1336 ;; This function is called by:
+  1337 ;;		_main
+  1338 ;; This function uses a non-reentrant model
+  1339 ;;
+  1340                           
+  1341                           	psect	text7
+  1342  000C16                     __ptext7:
+  1343                           	opt callstack 0
+  1344  000C16                     _Nokia_Clear:
+  1345                           	opt callstack 29
+  1346                           
+  1347                           ;lib_nokia.c: 60:     char i,j;;lib_nokia.c: 61:     LATDbits.LATD3 = 0;
+  1348                           
+  1349                           ;incstack = 0
+  1350  000C16  968C               	bcf	3980,3,c	;volatile
+  1351                           
+  1352                           ;lib_nokia.c: 62:     LATDbits.LATD4 = 1;
+  1353  000C18  888C               	bsf	3980,4,c	;volatile
+  1354                           
+  1355                           ;lib_nokia.c: 63:     for(i=0;i<6;i++)
+  1356  000C1A  0E00               	movlw	0
+  1357  000C1C  6E07               	movwf	Nokia_Clear@i,c
+  1358  000C1E                     l830:
+  1359                           
+  1360                           ;lib_nokia.c: 64:     {;lib_nokia.c: 65:         for(j=0;j<84;j++)
+  1361  000C1E  0E00               	movlw	0
+  1362  000C20  6E08               	movwf	Nokia_Clear@j,c
+  1363  000C22                     l836:
+  1364                           
+  1365                           ;lib_nokia.c: 66:             spi_write(0);
+  1366  000C22  0E00               	movlw	0
+  1367  000C24  EC6A  F005         	call	_spi_write
+  1368  000C28  2A08               	incf	Nokia_Clear@j,f,c
+  1369  000C2A  0E53               	movlw	83
+  1370  000C2C  6408               	cpfsgt	Nokia_Clear@j,c
+  1371  000C2E  D7F9               	goto	l836
+  1372                           
+  1373                           ;lib_nokia.c: 67:     }
+  1374  000C30  2A07               	incf	Nokia_Clear@i,f,c
+  1375  000C32  0E05               	movlw	5
+  1376  000C34  6407               	cpfsgt	Nokia_Clear@i,c
+  1377  000C36  D7F3               	goto	l830
+  1378                           
+  1379                           ;lib_nokia.c: 68:     LATDbits.LATD3 = 1;
+  1380  000C38  868C               	bsf	3980,3,c	;volatile
+  1381  000C3A  0012               	return		;funcret
+  1382  000C3C                     __end_of_Nokia_Clear:
+  1383                           	opt callstack 0
+  1384                           
+  1385 ;; *************** function _spi_write *****************
+  1386 ;; Defined at:
+  1387 ;;		line 30 in file "spi_sof.c"
+  1388 ;; Parameters:    Size  Location     Type
+  1389 ;;  data            1    wreg     unsigned char 
+  1390 ;; Auto vars:     Size  Location     Type
+  1391 ;;  data            1    3[COMRAM] unsigned char 
+  1392 ;;  i               2    4[COMRAM] int 
+  1393 ;; Return value:  Size  Location     Type
+  1394 ;;                  1    wreg      void 
+  1395 ;; Registers used:
+  1396 ;;		wreg, status,2, status,0
+  1397 ;; Tracked objects:
+  1398 ;;		On entry : 0/0
+  1399 ;;		On exit  : 0/0
+  1400 ;;		Unchanged: 0/0
+  1401 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1402 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1403 ;;      Locals:         3       0       0       0       0       0       0       0       0
+  1404 ;;      Temps:          3       0       0       0       0       0       0       0       0
+  1405 ;;      Totals:         6       0       0       0       0       0       0       0       0
+  1406 ;;Total ram usage:        6 bytes
+  1407 ;; Hardware stack levels used:    1
+  1408 ;; This function calls:
+  1409 ;;		Nothing
+  1410 ;; This function is called by:
+  1411 ;;		_Nokia_SendCommand
+  1412 ;;		_Nokia_SendData
+  1413 ;;		_Nokia_Clear
+  1414 ;; This function uses a non-reentrant model
+  1415 ;;
+  1416                           
+  1417                           	psect	text8
+  1418  000AD4                     __ptext8:
+  1419                           	opt callstack 0
+  1420  000AD4                     _spi_write:
+  1421                           	opt callstack 28
+  1422                           
+  1423                           ;incstack = 0
+  1424                           ;spi_write@data stored from wreg
+  1425  000AD4  6E04               	movwf	spi_write@data,c
+  1426                           
+  1427                           ;spi_sof.c: 32:     for (int i = 0; i < 8; i++)
+  1428  000AD6  0E00               	movlw	0
+  1429  000AD8  6E06               	movwf	spi_write@i+1,c
+  1430  000ADA  0E00               	movlw	0
+  1431  000ADC  6E05               	movwf	spi_write@i,c
+  1432  000ADE                     l772:
+  1433                           
+  1434                           ;spi_sof.c: 33:     {;spi_sof.c: 37:         if ((data << i) & 0x80){
+  1435  000ADE  C005  F001         	movff	spi_write@i,??_spi_write
+  1436  000AE2  5004               	movf	spi_write@data,w,c
+  1437  000AE4  6E02               	movwf	(??_spi_write+1)& (0+255),c
+  1438  000AE6  6A03               	clrf	(??_spi_write+2)& (0+255),c
+  1439  000AE8  2A01               	incf	??_spi_write,f,c
+  1440  000AEA  D003               	goto	u14
+  1441  000AEC                     u15:
+  1442  000AEC  90D8               	bcf	status,0,c
+  1443  000AEE  3602               	rlcf	??_spi_write+1,f,c
+  1444  000AF0  3603               	rlcf	??_spi_write+2,f,c
+  1445  000AF2                     u14:
+  1446  000AF2  2E01               	decfsz	??_spi_write,f,c
+  1447  000AF4  D7FB               	goto	u15
+  1448  000AF6  AE02               	btfss	??_spi_write+1,7,c
+  1449  000AF8  D002               	goto	l45
+  1450                           
+  1451                           ;spi_sof.c: 38:             LATDbits.LATD0 = 1;
+  1452  000AFA  808C               	bsf	3980,0,c	;volatile
+  1453                           
+  1454                           ;spi_sof.c: 39:         }
+  1455  000AFC  D001               	goto	l46
+  1456  000AFE                     l45:
+  1457                           
+  1458                           ;spi_sof.c: 41:             LATDbits.LATD0 = 0;
+  1459  000AFE  908C               	bcf	3980,0,c	;volatile
+  1460  000B00                     l46:
+  1461                           
+  1462                           ;spi_sof.c: 44:         LATDbits.LATD2 = 0;
+  1463  000B00  948C               	bcf	3980,2,c	;volatile
+  1464                           
+  1465                           ;spi_sof.c: 45:         _delay((unsigned long)((100)*(8000000UL/4000000.0)));
+  1466  000B02  0E42               	movlw	66
+  1467  000B04                     u157:
+  1468  000B04  2EE8               	decfsz	wreg,f,c
+  1469  000B06  D7FE               	bra	u157
+  1470  000B08  D000               	nop2	
+  1471                           
+  1472                           ;spi_sof.c: 46:         LATDbits.LATD2 = 1;
+  1473  000B0A  848C               	bsf	3980,2,c	;volatile
+  1474                           
+  1475                           ;spi_sof.c: 47:         _delay((unsigned long)((100)*(8000000UL/4000000.0)));
+  1476  000B0C  0E42               	movlw	66
+  1477  000B0E                     u167:
+  1478  000B0E  2EE8               	decfsz	wreg,f,c
+  1479  000B10  D7FE               	bra	u167
+  1480  000B12  D000               	nop2	
+  1481                           
+  1482                           ;spi_sof.c: 48:     }
+  1483  000B14  4A05               	infsnz	spi_write@i,f,c
+  1484  000B16  2A06               	incf	spi_write@i+1,f,c
+  1485  000B18  BE06               	btfsc	spi_write@i+1,7,c
+  1486  000B1A  D7E1               	goto	l772
+  1487  000B1C  5006               	movf	spi_write@i+1,w,c
+  1488  000B1E  E105               	bnz	u30
+  1489  000B20  0E08               	movlw	8
+  1490  000B22  5C05               	subwf	spi_write@i,w,c
+  1491  000B24  B0D8               	btfsc	status,0,c
+  1492  000B26  0012               	return	
+  1493  000B28  D7DA               	goto	l772
+  1494  000B2A                     u30:
+  1495  000B2A  0012               	return		;funcret
+  1496  000B2C                     __end_of_spi_write:
+  1497                           	opt callstack 0
+  1498                           
+  1499                           	psect	rparam
+  1500  0000                     tosu	equ	0xFFF
+  1501                           tosh	equ	0xFFE
+  1502                           tosl	equ	0xFFD
+  1503                           stkptr	equ	0xFFC
+  1504                           pclatu	equ	0xFFB
+  1505                           pclath	equ	0xFFA
+  1506                           pcl	equ	0xFF9
+  1507                           tblptru	equ	0xFF8
+  1508                           tblptrh	equ	0xFF7
+  1509                           tblptrl	equ	0xFF6
+  1510                           tablat	equ	0xFF5
+  1511                           prodh	equ	0xFF4
+  1512                           prodl	equ	0xFF3
+  1513                           indf0	equ	0xFEF
+  1514                           postinc0	equ	0xFEE
+  1515                           postdec0	equ	0xFED
+  1516                           preinc0	equ	0xFEC
+  1517                           plusw0	equ	0xFEB
+  1518                           fsr0h	equ	0xFEA
+  1519                           fsr0l	equ	0xFE9
+  1520                           wreg	equ	0xFE8
+  1521                           indf1	equ	0xFE7
+  1522                           postinc1	equ	0xFE6
+  1523                           postdec1	equ	0xFE5
+  1524                           preinc1	equ	0xFE4
+  1525                           plusw1	equ	0xFE3
+  1526                           fsr1h	equ	0xFE2
+  1527                           fsr1l	equ	0xFE1
+  1528                           bsr	equ	0xFE0
+  1529                           indf2	equ	0xFDF
+  1530                           postinc2	equ	0xFDE
+  1531                           postdec2	equ	0xFDD
+  1532                           preinc2	equ	0xFDC
+  1533                           plusw2	equ	0xFDB
+  1534                           fsr2h	equ	0xFDA
+  1535                           fsr2l	equ	0xFD9
+  1536                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     82
+    Constant    0
+    Data        480
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95     16      16
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+
+Pointer List with Targets:
+
+    Nokia_SendString@data	PTR unsigned char  size(2) Largest target is 19
+		 -> STR_5(CODE[17]), STR_4(CODE[11]), STR_3(CODE[17]), STR_2(CODE[18]), 
+		 -> STR_1(CODE[19]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _main->_Nokia_SendString
+    _Nokia_SendString->_Nokia_SendData
+    _Nokia_SendData->_spi_write
+    _Nokia_PositionXY->_Nokia_SendCommand
+    _Nokia_Init->_Nokia_SendCommand
+    _Nokia_SendCommand->_spi_write
+    _Nokia_Clear->_spi_write
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 2     2      0    1239
+                                             14 COMRAM     2     2      0
+                        _Nokia_Clear
+                         _Nokia_Init
+                   _Nokia_PositionXY
+                   _Nokia_SendString
+                    _spi_init_master
+ ---------------------------------------------------------------------------------
+ (1) _spi_init_master                                      0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _Nokia_SendString                                     3     1      2     545
+                                             12 COMRAM     2     0      2
+                     _Nokia_SendData
+ ---------------------------------------------------------------------------------
+ (2) _Nokia_SendData                                       6     6      0     120
+                                              6 COMRAM     6     6      0
+                          _spi_write
+ ---------------------------------------------------------------------------------
+ (1) _Nokia_PositionXY                                     2     1      1     499
+                                              7 COMRAM     2     1      1
+                  _Nokia_SendCommand
+ ---------------------------------------------------------------------------------
+ (1) _Nokia_Init                                           2     2      0      75
+                                              7 COMRAM     2     2      0
+                  _Nokia_SendCommand
+ ---------------------------------------------------------------------------------
+ (2) _Nokia_SendCommand                                    1     1      0      75
+                                              6 COMRAM     1     1      0
+                          _spi_write
+ ---------------------------------------------------------------------------------
+ (1) _Nokia_Clear                                          2     2      0     120
+                                              6 COMRAM     2     2      0
+                          _spi_write
+ ---------------------------------------------------------------------------------
+ (3) _spi_write                                            6     6      0      60
+                                              0 COMRAM     6     6      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _Nokia_Clear
+     _spi_write
+   _Nokia_Init
+     _Nokia_SendCommand
+       _spi_write
+   _Nokia_PositionXY
+     _Nokia_SendCommand
+       _spi_write
+   _Nokia_SendString
+     _Nokia_SendData
+       _spi_write
+   _spi_init_master
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             7FF      0     1E0      21       23.4%
+EEDATA             100      0       0       0        0.0%
+BITBANK7           100      0       0      18        0.0%
+BANK7              100      0       0      19        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITCOMRAM           5F      0       0       0        0.0%
+COMRAM              5F     10      10       1       16.8%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      10      20        0.0%
+DATA                 0      0     1F0       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.05 build -831301201 
+Symbol Table                                                                                   Mon Jul 22 02:45:44 2019
+
+                        l45 0AFE                          l46 0B00                          u30 0B2A  
+                        u14 0AF2                          u15 0AEC                 __CFG_BORV$3 000000  
+                       l830 0C1E                         l920 0BEE                         l772 0ADE  
+                       l836 0C22                         l924 0C02                         l950 0AA0  
+                       l796 0B36                         u137 0AAA                         u147 0B84  
+                       u157 0B04                         u167 0B0E                __CFG_BOR$OFF 000000  
+                       wreg 000FE8                __CFG_LVP$OFF 000000                __CFG_WDT$OFF 000000  
+                      STR_1 0801                        STR_2 0814                        STR_3 0826  
+                      STR_4 0848                        STR_5 0837                __CFG_PWRT$ON 000000  
+                      _main 0A34                        _font 0620                        fsr1h 000FE2  
+                      indf2 000FDF                        fsr1l 000FE1                        fsr2l 000FD9  
+                      prodh 000FF4                        prodl 000FF3                        start 0000  
+             __CFG_MCLRE$ON 000000                ___param_bank 000000                       ?_main 0001  
+                     _TRISD 000F95        Nokia_SendString@data 000D   __size_of_Nokia_SendString 002A  
+                     tablat 000FF5                       status 000FD8             __initialization 0BBA  
+              __end_of_main 0AD4   __size_of_Nokia_PositionXY 0014               ??_Nokia_Clear 0007  
+                    ??_main 000F               __activetblptr 000001             __CFG_CCP2MX$OFF 000000  
+                _Nokia_Init 0B78                      _OSCCON 000FD3            ??_Nokia_SendData 0007  
+              __pdataBIGRAM 0620                __mediumconst 0000         __end_of_Nokia_Clear 0C3C  
+                    tblptrh 000FF7                      tblptrl 000FF6                      tblptru 000FF8  
+                __accesstop 0060     __end_of__initialization 0BDE               spi_write@data 0004  
+           __CFG_PBADEN$OFF 000000               ___rparam_used 000001              __pcstackCOMRAM 0001  
+          _Nokia_SendString 0BEC                 ?_Nokia_Init 0001    __size_of_spi_init_master 000A  
+          _Nokia_PositionXY 0C3C                 _Nokia_Clear 0C16             Nokia_SendData@i 000C  
+        __size_of_spi_write 0058                     __Hparam 0000                     __Lparam 0000  
+              __psmallconst 0800         __size_of_Nokia_Init 0042                     __pcinit 0BBA  
+                   __ramtop 0800                     __ptext0 0A34                     __ptext1 0C60  
+                   __ptext2 0BEC                     __ptext3 0B2C                     __ptext4 0C3C  
+                   __ptext5 0B78                     __ptext6 0C50                     __ptext7 0C16  
+                   __ptext8 0AD4        end_of_initialization 0BDE           Nokia_SendData@dat 000B  
+         ??_spi_init_master 0001           __end_of_spi_write 0B2C                     postdec1 000FE5  
+                   postinc0 000FEE                   _PORTDbits 000F83                   _TRISDbits 000F95  
+              Nokia_Clear@i 0007                Nokia_Clear@j 0008    __end_of_Nokia_SendString 0C16  
+             __pidataBIGRAM 0854         start_initialization 0BBA                ??_Nokia_Init 0008  
+         _Nokia_SendCommand 0C50    __end_of_Nokia_PositionXY 0C50          ?_Nokia_SendCommand 0001  
+       ??_Nokia_SendCommand 0007                ?_Nokia_Clear 0001          __end_of_Nokia_Init 0BBA  
+   __size_of_Nokia_SendData 004C   __end_of_Nokia_SendCommand 0C60                 __smallconst 0800  
+         Nokia_PositionXY@X 0009           Nokia_PositionXY@Y 0008             _spi_init_master 0C60  
+                  _LATDbits 000F8C                   _spi_write 0AD4        Nokia_SendCommand@cmd 0007  
+__size_of_Nokia_SendCommand 0010                   copy_data0 0BCE                  spi_write@i 0005  
+                  __Hrparam 0000                    __Lrparam 0000                __Lsmallconst 0800  
+         ?_Nokia_SendString 000D          ??_Nokia_SendString 000F                  ?_spi_write 0001  
+     __CFG_FOSC$INTOSCIO_EC 000000              _Nokia_SendData 0B2C        __size_of_Nokia_Clear 0026  
+   __end_of_spi_init_master 0C6A           ?_Nokia_PositionXY 0008               __size_of_main 00A0  
+        ??_Nokia_PositionXY 0009      __end_of_Nokia_SendData 0B78             ?_Nokia_SendData 0001  
+               ??_spi_write 0001            ?_spi_init_master 0001  
